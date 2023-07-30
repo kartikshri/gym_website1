@@ -1,0 +1,220 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kartik fitness</title>
+</head>
+<style>
+    /* Your existing CSS styles... */
+    body{
+        background: url(b2.jpg);
+    }
+    .left{
+        display: inline;
+        
+       color: black;
+       position:absolute;
+        left: 34px;
+        top:20px;
+    
+    }
+    
+    .mid{
+       
+      color: white;
+      display :block;
+      width: 33%;
+      margin: 5px auto ;
+    }
+    .right{
+        display: inline;
+       
+        color: white;
+        position:absolute;
+        right: 34px;
+        top:20px;
+    }
+    .navbar{
+        display: inline-block;
+    }
+    .navbar li{
+        display: inline-block;
+    }
+    .navbar li a{
+        color: white;
+        text-decoration: none;
+        padding: 5px;
+    }
+    .navbar li a:hover ,.navbar li a.active{
+        text-decoration: underline;
+        color:red;
+    }
+    .left img{
+        width: 80px;
+    }
+    .btn{
+      margin: 0px 10px;
+      background-color: black;
+      padding: 3px 5px;
+      color: white;
+      border-radius: 10px;
+      border : 2px solid gray  ;
+      cursor: pointer;
+    }
+    .btn:hover{
+        background-color: aquamarine;
+        color: black;
+    }
+    .contener{
+    
+        padding: 75px ;
+        width: 33%;
+        margin: 106px 80px ;
+        border-radius: 28px;
+        color:blue;
+    }
+    .from input{
+        text-align: center;
+        display: block;
+        width: 64%;
+        padding: 6px;
+        border: 2px solid black;
+        margin: 3px auto;
+        border-radius: 10px;
+    }
+.contener h1{
+    text-align: inline;
+    margin: 12px auto;
+    border: 2px solid black;
+    margin: 10px auto;
+   background-color: antiquewhite;
+   border-radius: 10px;
+}
+.contener button{
+display: block;
+margin: auto;
+width: 23%;
+}
+</style>
+<body>
+    <header>
+        <!-- Your existing header content... -->
+        <div class="left"><img src="IMG_20230611_122726.jpg" alt=""><div>KARTIKFIT</div>
+    </div>
+    <div class="mid">
+        <ul class="navbar">
+          <li><a href="#" >HOME</a></li>
+          <li><a href="#">FITNESS</a></li>
+          <li><a href="#" >ABOUT</a></li>
+          <li><a href="#" >CONTACT</a></li>
+        </ul>
+    </div>
+    <div class="right"><button class="btn">call us now</button><button class="btn">email us</button></div>
+    </header>
+    <div class="contener">
+        <div><h1>GYM CLASS BHOPAL</h1></div>
+        <form action="notaion.php" onsubmit="return validateForm()">
+            <div class="from">
+                <input type="text" name="name" placeholder="ENTER YOUR NAME">
+            </div>
+            <div class="from">
+                <input type="text" name="fatherName" placeholder="ENTER YOUR FATHER NAME">
+            </div>
+            <div class="from">
+                <input type="text" name="adharNumber" placeholder="ENTER YOUR ADHAR NUMBER">
+            </div>
+            <div class="from">
+                <input type="text" name="mobileNumber" placeholder="ENTER YOUR MOBILE NUMBER">
+            </div>
+            <div class="from">
+                <input type="text" name="address" placeholder="ENTER YOUR ADDRESS">
+            </div>
+            <button class="btn">submit</button>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Form submitted successfully!</p>
+        </div>
+    </div>
+   
+    <div class="right">
+        <button class="btn" onclick="showcallModal('Call us now')">call us now</button>
+        <button class="btn" onclick="showEmailModal()">email us</button>
+    </div>
+    
+    <!-- Your existing footer content... -->
+    
+    <!-- Modal for Call us now -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closecallModal()">&times;</span>
+            <p id="modalMessage">8960214687</p>
+        </div>
+    </div>
+    
+    <!-- Modal for Email us -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEmailModal()">&times;</span>
+            <p>Email us at: kartikshrivastav2004@gmail.com</p>
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script>
+        // Change Background Image on Click
+        function changeBackground() {
+            const body = document.querySelector('body');
+            body.style.background = 'url(new_background.jpg)';
+            body.style.backgroundSize = 'cover';
+        }
+
+        // Form Validation
+        function validateForm() {
+            const name = document.querySelector('input[name="name"]').value;
+            const fatherName = document.querySelector('input[name="fatherName"]').value;
+            const adharNumber = document.querySelector('input[name="adharNumber"]').value;
+            const mobileNumber = document.querySelector('input[name="mobileNumber"]').value;
+            const address = document.querySelector('input[name="address"]').value;
+
+            if (name === '' || fatherName === '' || adharNumber === '' || mobileNumber === '' || address === '') {
+                alert('Please fill out all the fields.');
+                return false;
+            }
+            return true;
+        }
+
+        // Show/Hide Modal
+        function showModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+        function showModal(message) {
+        const modalMessage = document.getElementById('modalMessage');
+        modalMessage.textContent = message;
+        document.getElementById('myModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    // Show/Hide Modal for Email us
+    function showEmailModal() {
+        document.getElementById('emailModal').style.display = 'block';
+    }
+
+    function closeEmailModal() {
+        document.getElementById('emailModal').style.display = 'none';
+    }
+    </script>
+</body>
+</html>
